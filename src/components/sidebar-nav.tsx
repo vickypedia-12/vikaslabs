@@ -81,11 +81,33 @@ export default function SidebarNav({ activeSection, onSectionClick }: SidebarNav
   return (
     <div className="fixed left-0 top-0 h-full w-[280px] bg-[var(--sidebar-background)] border-r border-[var(--sidebar-border)] backdrop-blur-sm bg-opacity-95 z-50 flex flex-col">
       {/* Header */}
-      <div className="p-6 border-b border-[var(--sidebar-border)]">
-        <h1 className="text-lg font-semibold text-[var(--sidebar-foreground)] font-[var(--font-mono)]">
-          Vikas.lab
-        </h1>
+     <div className="p-6 border-b border-[var(--sidebar-border)]">
+      <div className="flex items-center gap-3">
+        {/* Blue icon box */}
+        <span
+          className="flex items-center justify-center w-12 h-11 rounded-2xl"
+          style={{
+            background: "hsl(217,91%,60%)",
+          }}
+        >
+          <span
+            className="font-mono text-3xl"
+            style={{
+              color: "hsl(210,11%,4%)",
+              fontWeight: 400,
+              letterSpacing: "0.05em",
+            }}
+          >
+            &gt;_
+          </span>
+        </span>
+        {/* Texts */}
+        <div>
+          <h1 className="text-xl font-bold font-mono leading-tight">vikas.lab</h1>
+          <h3 className="text-base font-mono text-white/50 opacity-80 leading-tight">AI Engineer</h3>
+        </div>
       </div>
+    </div>
 
       {/* Navigation */}
       <nav className="flex-1 px-4 py-6 overflow-y-auto">

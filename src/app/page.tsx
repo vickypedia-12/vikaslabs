@@ -16,13 +16,14 @@ export default function Portfolio() {
     const style = document.createElement('style')
     style.textContent = `
       :root {
-        --sidebar-background: #1a1a1a;
-        --sidebar-border: #262626;
+        --sidebar-background: #000000ff;
+        --sidebar-border: #fffcfc5d;
         --sidebar-foreground: #ffffff;
-        --sidebar-primary: #10b981;
+        --sidebar-primary: hsl(217, 91%, 60%);
         --sidebar-primary-foreground: #ffffff;
-        --sidebar-accent: #262626;
-        --sidebar-accent-foreground: #ffffff;
+        --sidebar-primary-glow:  hsl(217, 91%, 70%);
+        --sidebar-accent: hsl(217, 91%, 60%);
+        --sidebar-accent-foreground: hsl(210, 11%, 4%);
         --font-mono: 'JetBrains Mono', monospace;
       }
     `
