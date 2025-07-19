@@ -16,7 +16,7 @@ export default function Portfolio() {
     const style = document.createElement('style')
     style.textContent = `
       :root {
-        --sidebar-background: #000000ff;
+        --sidebar-background: #141414ff;
         --sidebar-border: #fffcfc5d;
         --sidebar-foreground: #ffffff;
         --sidebar-primary: hsl(217, 91%, 60%);

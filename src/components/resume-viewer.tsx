@@ -27,7 +27,7 @@ const TypewriterText = ({ text, isVisible, delay = 0 }: { text: string; isVisibl
         setDisplayedText(text.slice(0, currentIndex + 1))
         setCurrentIndex(currentIndex + 1)
       }
-    }, delay + currentIndex * 50)
+    }, delay + currentIndex * 1)
 
     return () => clearTimeout(timer)
   }, [text, isVisible, currentIndex, delay])
@@ -54,7 +54,7 @@ interface ResumeData {
   }[]
   projects: {
     name: string
-    description: string
+    description: string[]
     technologies: string[]
     link?: string
   }[]
@@ -63,66 +63,80 @@ interface ResumeData {
 const mockResumeData: ResumeData = {
   education: [
     {
-      degree: "Master of Computer Science",
-      institution: "Stanford University",
-      year: "2021-2023",
-      details: ["GPA: 3.8/4.0", "Specialization: Machine Learning", "Research: Natural Language Processing"]
-    },
-    {
       degree: "Bachelor of Engineering",
-      institution: "Indian Institute of Technology",
-      year: "2017-2021",
-      details: ["GPA: 3.9/4.0", "Major: Computer Science", "Valedictorian"]
+      institution: "University of Mumbai",
+      year: "2022-2026",
+      details: ["GPA: 9.72/10.00", "Major: Information Technology", "Relevant Coursework: Data Structures, Algorithms, Database Systems"]
     }
   ],
   experience: [
     {
-      position: "Senior Software Engineer",
-      company: "Meta",
-      period: "2023-Present",
+      position: "Ai Backend Engineer Intern",
+      company: "Vighnotech",
+      period: "Aug 2024- Jan 2025",
       responsibilities: [
-        "Lead development of ML infrastructure serving 3B+ users",
-        "Architected microservices handling 100M+ requests/day",
-        "Mentored 5 junior engineers and led cross-functional teams"
+        "• Collaborated with cross-functional teams to implement AI in IMS, CRM, and mobile applications.",
+        "• Developed custom RAG-based applications from scratch using Scrapy and FastAPI, storing data in a vector database for optimized retrieval.",
+        "• Built a MultiAgent system for chatbot applications, integrating multiple functionalities into a single solution.",
+        "• Enhanced system performance and scalability by optimizing backend architecture and data pipelines."
       ]
     },
     {
       position: "Software Engineer Intern",
-      company: "Google",
-      period: "Summer 2022",
+      company: "Jurisphere",
+      period: "Mar 24 - Apr 24",
       responsibilities: [
-        "Developed real-time data processing pipeline",
-        "Improved query performance by 40% using advanced indexing",
-        "Collaborated with product teams on user-facing features"
+        "• Improved RAG-augmented AI capabilities by refining data curation and processing pipelines.",
+        "• Utilized Scrapy and other Python frameworks to scrape dynamic and static websites efficiently.",
+        "• Automated daily report generation, enhancing team productivity and data insights.",
+        "• Explored startup dynamics and contributed to enhancing AI-driven workflows."
       ]
     }
   ],
   skills: [
     {
       category: "Programming Languages",
-      items: ["Python", "JavaScript", "TypeScript", "Go", "Rust", "C++"]
+      items: ["Python","C++", "JavaScript", "TypeScript", "Rust" ]
     },
     {
       category: "Frameworks & Tools",
-      items: ["React", "Node.js", "Docker", "Kubernetes", "AWS", "TensorFlow"]
+      items: ["Django", "Flask", "FastAPI", "Machine Learning", "Artificial Intelligence", "GenAI", "React", "Node.js", "Docker", "AWS", "Git", "Scrapy"]
     },
     {
       category: "Databases",
-      items: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"]
+      items: ["PostgreSQL", "MongoDB", "MySQL", "Vector DB"]  
     }
   ],
   projects: [
     {
-      name: "AI Code Assistant",
-      description: "Built an intelligent code completion tool using GPT-4 API",
-      technologies: ["Python", "OpenAI API", "VS Code Extension"],
-      link: "https://github.com/vikas/ai-assistant"
+      name: "Insightify",
+      description: [
+        "Secured 1st place in DEVQUEST Hackathon, demonstrating exceptional problem-solving skills and innovation.",
+        "Curated and refined raw data for seamless front-end integration.",
+        "Led project presentations with a focus on strategic vision and technical depth."
+      ],
+      technologies: ["Python"],
+      link: "https://github.com/vaxad/Insightify"
     },
     {
-      name: "Distributed Chat System",
-      description: "Real-time chat application with 99.9% uptime",
-      technologies: ["Go", "WebSocket", "Redis", "PostgreSQL"],
-      link: "https://github.com/vikas/chat-system"
+      name: "Morpheus",
+      description: [
+        "Developed a Google Forms-like application using Django Templates and DRF, ensuring modular and scalable code.",
+        "Created a structured folder system to enhance maintainability and modularity.",
+        "Enabled seamless form creation, submission, and analysis through an intuitive user interface."
+      ],
+      technologies: ["Django", "Python", "sqlite"],
+      link: "https://github.com/vickypedia-12/morpheus"
+    },
+    {
+      name: "Study Rag",
+      description: [
+        "Developed a RAG-based application to process and analyze study materials such as DOCs, PPTs, and PDFs.",
+        "Empowered 50+ active users to upload documents and generate a comprehensive answers from the parsed questions.",
+        "Optimized document parsing using LangChain, streamlined backend with FastAPI, and enhanced user experience through Streamlit."
+      ],
+      technologies: ["Python", "vector DB", "LangChain", "FastAPI", "streamlit"],
+      link: "https://github.com/vickypedia-12/study-rag"
     }
   ]
 }
@@ -200,14 +214,14 @@ export default function ResumeViewer() {
             <div className="border-b border-border pb-4">
               <div className="flex items-center gap-2 mb-2">
                 <User className="w-5 h-5 text-primary" />
-                <h1 className="text-2xl font-bold text-foreground">Vikas Kumar</h1>
+                <h1 className="text-2xl font-bold text-foreground">Vikas Mourya</h1>
               </div>
               <p className="text-primary text-lg">$ whoami</p>
-              <p className="text-muted-foreground ml-4">Senior Software Engineer | Full-Stack Developer | ML Engineer</p>
+              <p className="text-muted-foreground ml-4">Software Engineer | Full-Stack Developer | Python Developer</p>
               <div className="mt-2 space-y-1 text-sm text-muted-foreground ml-4">
-                <p>📧 vikas.kumar@example.com</p>
-                <p>🌐 linkedin.com/in/vikas-kumar</p>
-                <p>💻 github.com/vikas</p>
+                <p>📧 vikasmourya54321@gmail.com</p>
+                <p>🌐 https://linkedin.com/in/vickypedia12</p>
+                <p>💻 https://github.com/vickypedia-12</p>
               </div>
             </div>
 

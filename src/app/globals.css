@@ -33,7 +33,7 @@
   --custom-ring: hsl(217, 91%, 60%);
 
   --color-sidebar-primary: hsl(217, 91%, 60%);
-  --color-sidebar-primary-foreground: hsl(210, 11%, 4%);
+  --color-sidebar-primary-foreground: #181a1b;
   --color-sidebar-ring: hsl(217, 91%, 60%);
 
   --radius-lg: 0.5rem;

@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Bot, Code, Database, Globe, MessageSquare, Zap } from "lucide-react"
+import { ArrowRight, Code2 } from "lucide-react"
 
 interface Project {
   id: string
@@ -18,51 +18,51 @@ interface Project {
 const projects: Project[] = [
   {
     id: "ai-assistant",
-    title: "AI Assistant Platform",
-    description: "Intelligent conversational agent with multi-model support, context awareness, and custom knowledge integration.",
-    techStack: ["OpenAI GPT", "LangChain", "TypeScript", "React", "Vector DB"],
-    icon: <Bot className="w-6 h-6" />,
-    link: "#"
+    title: "Study RAG Assistant",
+    description: "A Retrieval-Augmented Generation (RAG)-based assistant designed to help students with personalized learning, automated summarization, and context-aware Q&A from their study materials.",
+    techStack: ["LangChain", "Python", "FastAPI", "Vector DB", "OpenAI API"],
+    icon: <Code2 className="w-6 h-6" />,
+    link: "https://github.com/vickypedia-12/StudyRag"
   },
   {
     id: "automation-engine",
-    title: "Workflow Automation Engine",
-    description: "Advanced automation system for complex business processes with AI-driven decision making and API integrations.",
-    techStack: ["Python", "FastAPI", "Redis", "PostgreSQL", "Docker"],
-    icon: <Zap className="w-6 h-6" />,
+    title: "Inventory Management System",
+    description: "Spring Boot and PostgreSQL-based inventory system for restaurants, linking ingredients, dishes, and recipes with automated stock management.",
+    techStack: ["Spring Boot", "Java", "PostgreSQL", "Docker", "REST APIs"],
+    icon: <Code2 className="w-6 h-6" />,
     link: "#"
   },
   {
     id: "content-generator",
-    title: "Content Generation Suite",
-    description: "Multi-modal content creation platform leveraging cutting-edge AI models for text, images, and code generation.",
-    techStack: ["Next.js", "Stable Diffusion", "Transformers", "AWS", "MongoDB"],
-    icon: <Globe className="w-6 h-6" />,
+    title: "Legal RAG Assistant",
+    description: "A legal-focused Retrieval-Augmented Generation system to help law students and professionals quickly retrieve case studies, summarize documents, and provide AI-assisted insights.",
+    techStack: ["LangChain", "Python", "FastAPI", "Vector DB", "OpenAI API"],
+    icon: <Code2 className="w-6 h-6" />,
     link: "#"
   },
   {
     id: "data-processor",
-    title: "Intelligent Data Processor",
-    description: "Real-time data processing pipeline with ML-powered insights, anomaly detection, and predictive analytics.",
-    techStack: ["Apache Kafka", "TensorFlow", "Kubernetes", "ElasticSearch", "Go"],
-    icon: <Database className="w-6 h-6" />,
-    link: "#"
+    title: "Morpheus – Google Forms Clone",
+    description: "A Google Forms-like application built with Django, featuring dynamic form creation, API-driven responses, and an admin dashboard for analytics.",
+    techStack: ["Django", "DRF", "Python", "PostgreSQL", "Bootstrap"],
+    icon: <Code2 className="w-6 h-6" />,
+    link: "https://github.com/vickypedia-12/morpheus"
   },
   {
     id: "code-assistant",
-    title: "Code Assistant Tool",
-    description: "AI-powered development companion with intelligent code completion, review automation, and documentation generation.",
-    techStack: ["VS Code API", "CodeT5", "Node.js", "GitHub API", "WebSocket"],
-    icon: <Code className="w-6 h-6" />,
-    link: "#"
+    title: "Sylph Search Engine",
+    description: "Custom-built search engine project with web crawling, indexing, and searching capabilities, designed as part of an AOA project.",
+    techStack: ["Python", "Scrapy", "FastAPI", "PostgreSQL", "Data Structures"],
+    icon: <Code2 className="w-6 h-6" />,
+    link: "https://github.com/vickypedia-12/sylph"
   },
   {
     id: "chat-interface",
-    title: "Conversational Interface",
-    description: "Advanced chat interface with voice integration, multi-language support, and context-aware responses.",
-    techStack: ["React", "WebRTC", "Socket.io", "Speech API", "NLP"],
-    icon: <MessageSquare className="w-6 h-6" />,
-    link: "#"
+    title: "Valentine Matchmaking App",
+    description: "A Django-based matchmaking system for college students during Valentine's Week, with dynamic profile matching and recommendations.",
+    techStack: ["Django", "Python", "SQLite", "Bootstrap", "jQuery"],
+    icon: <Code2 className="w-6 h-6" />,
+    link: "https://github.com/vickypedia-12/Valentine-hearts"
   }
 ]
 
@@ -78,10 +78,10 @@ export default function AgentDeck() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Agent Deck
+            Project <span style={{ color: "hsl(217, 91%, 60%)" }}>Deck</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Explore our collection of intelligent AI agents and automation tools designed to enhance productivity and streamline workflows.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" style={{ color: "hsla(0, 0%, 37%, 1.00)" }}>
+            A collection of intelligent agents and tools I've built to solve real-world problems
           </p>
         </motion.div>
 
@@ -93,18 +93,18 @@ export default function AgentDeck() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+              whileHover={{ scale: 1.02 }}
               className="group"
             >
-              <Card className="bg-card border-border h-full relative overflow-hidden backdrop-blur-sm bg-opacity-90 hover:bg-opacity-100 transition-all duration-300">
+              <Card className=" bg-[#181a1b] border-border h-full relative overflow-hidden shadow-none group-hover:shadow-[0_0_24px_6px_hsl(217,91%,60%,0.35)] ">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-3"> 
                     <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                       {project.icon}
                     </div>
-                    <CardTitle className="text-xl text-card-foreground group-hover:text-primary transition-colors duration-300">
+                    <CardTitle className="text-xl text-card-foreground group-hover:text-primary transition-colors duration-300 ">
                       {project.title}
                     </CardTitle>
                   </div>
@@ -115,12 +115,12 @@ export default function AgentDeck() {
                 </CardHeader>
 
                 <CardContent className="pt-0">
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6" style={{color:"hsl(142 76% 56%)"}}>
                     {project.techStack.map((tech, techIndex) => (
                       <Badge
                         key={techIndex}
                         variant="secondary"
-                        className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 text-xs px-2 py-1"
+                        className=" text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 text-xs px-2 py-1 border-[#22ff88] rounded-full"
                       >
                         {tech}
                       </Badge>

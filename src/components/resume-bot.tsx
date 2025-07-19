@@ -78,20 +78,26 @@ export default function ResumeBot() {
   const generateBotResponse = (query: string): string => {
     const lowerQuery = query.toLowerCase()
     
+    if( lowerQuery.includes('hello') || lowerQuery.includes('hello, how are you')|| lowerQuery.includes('hi, how are you') || lowerQuery.includes('hey, how are you')) {
+      return 'Hello! I am a bot, created in vikas.lab, How can I assist you today?'
+    }
+
     if (lowerQuery.includes('ai') || lowerQuery.includes('artificial intelligence')) {
       return 'Vikas has extensive experience with AI and machine learning technologies. He has worked on various AI projects including natural language processing, computer vision, and predictive analytics. His expertise spans TensorFlow, PyTorch, and cloud-based AI services.'
     }
     
     if (lowerQuery.includes('programming') || lowerQuery.includes('languages')) {
-      return 'Vikas is proficient in multiple programming languages including:\n• Python - Advanced level\n• JavaScript/TypeScript - Expert level\n• Java - Intermediate level\n• Go - Intermediate level\n• SQL - Advanced level\n\nHe also has experience with frameworks like React, Next.js, Django, and FastAPI.'
+      return 'Vikas is proficient in multiple programming languages including:\n• Python - Advanced level\n• C++ - Expert level\n• Java - Intermediate level\n• SQL - Advanced level\n\nHe also has experience with frameworks like  Django, FastAPI, Flask, and React.'
     }
     
     if (lowerQuery.includes('projects')) {
-      return 'Vikas has worked on numerous projects including:\n• E-commerce platforms with AI-powered recommendations\n• Real-time chat applications\n• Data visualization dashboards\n• Machine learning pipelines\n• Microservices architectures\n\nEach project demonstrates his full-stack capabilities and attention to scalable solutions.'
+    return "Vikas has built and contributed to a diverse range of projects, such as:\n• AI-driven e-commerce platforms\n• Real-time chat and collaboration tools\n• Interactive data visualization dashboards\n• End-to-end machine learning workflows\n• Scalable microservices-based systems\n\nThese projects highlight his full-stack expertise and focus on delivering robust, scalable solutions."
+
     }
     
     if (lowerQuery.includes('skills') || lowerQuery.includes('technical')) {
-      return 'Technical Skills Overview:\n• Frontend: React, Next.js, TypeScript, Tailwind CSS\n• Backend: Python, Node.js, Django, FastAPI\n• Databases: PostgreSQL, MongoDB, Redis\n• Cloud: AWS, Google Cloud, Docker, Kubernetes\n• AI/ML: TensorFlow, PyTorch, Scikit-learn\n• DevOps: CI/CD, Git, Linux, Monitoring'
+    return "Technical Skills Overview:\n • Programming & Backend: Python, Node.js, Django, FastAPI\n • Frontend & UI: React, Next.js, TypeScript, Tailwind CSS\n • Databases & Caching: PostgreSQL, MongoDB, Redis\n • AI & Machine Learning: PyTorch, TensorFlow, Scikit-learn\n • Cloud & Containerization: AWS, Google Cloud, Docker, Kubernetes\n • DevOps & Tools: Linux, Git, CI/CD, Monitoring"
+
     }
     
     if (lowerQuery.includes('education')) {
@@ -127,7 +133,7 @@ export default function ResumeBot() {
           <div className="bg-secondary px-4 py-3 flex items-center justify-between border-b border-border">
             <div className="flex items-center space-x-2">
               <Terminal className="w-4 h-4 text-primary" />
-              <span className="font-mono text-sm text-foreground">vikas@terminal:~$</span>
+              <span className="font-mono text-sm text-foreground">vikas.lab@terminal:~$</span>
             </div>
             <div className="flex items-center space-x-2">
               <button className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors">
@@ -192,7 +198,7 @@ export default function ResumeBot() {
           {/* Input Area */}
           <div className="border-t border-border p-4 space-y-4">
             <form onSubmit={handleSubmit} className="flex items-center space-x-2">
-              <span className="text-primary font-mono text-sm">vikas@terminal:~$</span>
+              <span className="text-primary font-mono text-sm">vikas.lab@terminal:~$</span>
               <div className="flex-1 relative">
                 <input
                   ref={inputRef}
