@@ -122,18 +122,18 @@ export default function ResumeBot() {
 
   return (
     <div className="bg-background">
-      <div className="max-w-4xl mx-auto p-6">
+      <div className="max-w-4xl mx-auto p-6" >
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-card border border-border rounded-lg overflow-hidden shadow-2xl"
+          className="bg-[#181a1b] border border-border rounded-lg overflow-hidden shadow-2xl"
         >
           {/* Terminal Header */}
           <div className="bg-secondary px-4 py-3 flex items-center justify-between border-b border-border">
             <div className="flex items-center space-x-2">
-              <Terminal className="w-4 h-4 text-primary" />
-              <span className="font-mono text-sm text-foreground">vikas.lab@terminal:~$</span>
+              <Terminal className="w-4 h-4 text-primary" style={{ color: "hsl(142 76% 56%)" }} />
+              <span className="font-mono text-sm text-foreground" >vikas.lab@terminal:~$</span>
             </div>
             <div className="flex items-center space-x-2">
               <button className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors">
@@ -161,15 +161,15 @@ export default function ResumeBot() {
                   className="space-y-1"
                 >
                   <div className="flex items-center space-x-2 text-muted-foreground">
-                    <span className="text-primary">
+                    <span className="text-primary" style={{ color: "hsl(142 76% 56%)" }}>
                       {message.type === 'user' ? '┌─[user@terminal]' : '┌─[bot@terminal]'}
                     </span>
                     <span className="text-xs">
                       {formatTimestamp(message.timestamp)}
                     </span>
                   </div>
-                  <div className="pl-4 border-l-2 border-primary/30">
-                    <span className="text-primary">
+                  <div className="pl-4 border-l-2 border-primary/30" >
+                    <span className="text-primary" style={{ color: "hsl(142 76% 56%)" }}>
                       {message.type === 'user' ? '└─$ ' : '└─> '}
                     </span>
                     <span className="text-foreground whitespace-pre-wrap">
@@ -198,7 +198,7 @@ export default function ResumeBot() {
           {/* Input Area */}
           <div className="border-t border-border p-4 space-y-4">
             <form onSubmit={handleSubmit} className="flex items-center space-x-2">
-              <span className="text-primary font-mono text-sm">vikas.lab@terminal:~$</span>
+              <span className="text-primary font-mono text-sm" style={{ color: "hsl(142 76% 56%)" }}>vikas.lab@terminal:~$</span>
               <div className="flex-1 relative">
                 <input
                   ref={inputRef}
@@ -210,15 +210,16 @@ export default function ResumeBot() {
                   placeholder="Type your question..."
                   autoComplete="off"
                 />
-                {showCursor && (
-                  <span className="absolute right-0 top-0 h-full w-2 bg-primary animate-pulse" />
-                )}
+                <span
+                  className={`absolute right-0 top-0 h-full w-1.5 bg-[#22ff88] animate-blink`}
+                  style={{ borderRadius: 2 }}
+                />
               </div>
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isTyping}
                 className="p-2 text-primary hover:bg-primary/10 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
+                style={{ color: "hsl(142 76% 56%)" }} >
                 <Send className="w-4 h-4" />
               </button>
             </form>

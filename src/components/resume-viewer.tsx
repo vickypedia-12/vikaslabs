@@ -160,8 +160,13 @@ export default function ResumeViewer() {
   const handleDownload = () => {
     setCommandHistory(prev => [...prev, "download resume.pdf"])
     // Mock download functionality
-    console.log("Downloading resume...")
-  }
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
 
   const getSectionIcon = (section: string) => {
     switch (section) {
@@ -176,7 +181,7 @@ export default function ResumeViewer() {
   return (
     <div className="min-h-screen bg-background p-4 font-mono">
       <div className="max-w-4xl mx-auto">
-        <Card className="bg-card border-border shadow-2xl">
+        <Card className="bg-card border-border shadow-2xl bg-[#181a1b]">
           {/* Terminal Header */}
           <div className="border-b border-border bg-secondary p-4">
             <div className="flex items-center gap-2">
@@ -185,11 +190,11 @@ export default function ResumeViewer() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="ml-4 flex items-center text-primary">
-                <Terminal className="w-4 h-4 mr-2" />
+              <div className="ml-4 flex items-center text-primary ">
+                <Terminal className="w-4 h-4 mr-2" style={{ color: "hsl(142 76% 56%)" }} />
                 <span className="text-foreground">vikas@portfolio</span>
                 <span className="text-muted-foreground">:</span>
-                <span className="text-primary">~/resume</span>
+                <span className="text-primary" style={{ color: "hsl(142 76% 56%)" }}>~/resume</span>
                 <span className="text-foreground">$</span>
                 <BlinkingCursor />
               </div>
@@ -198,7 +203,7 @@ export default function ResumeViewer() {
 
           {/* Command History */}
           <div className="p-4 border-b border-border bg-muted/30">
-            <div className="space-y-1 text-sm">
+            <div className="space-y-1 text-sm" >
               {commandHistory.slice(-3).map((cmd, index) => (
                 <div key={index} className="flex items-center text-muted-foreground">
                   <span className="text-primary">$</span>
@@ -213,12 +218,12 @@ export default function ResumeViewer() {
             {/* Header */}
             <div className="border-b border-border pb-4">
               <div className="flex items-center gap-2 mb-2">
-                <User className="w-5 h-5 text-primary" />
+                <User className="w-5 h-5 text-primary" style={{ color: "hsl(142 76% 56%)" }}/>
                 <h1 className="text-2xl font-bold text-foreground">Vikas Mourya</h1>
               </div>
-              <p className="text-primary text-lg">$ whoami</p>
-              <p className="text-muted-foreground ml-4">Software Engineer | Full-Stack Developer | Python Developer</p>
-              <div className="mt-2 space-y-1 text-sm text-muted-foreground ml-4">
+              <p className="text-primary text-lg" style={{ color: "hsl(142 76% 56%)" }}>$ whoami</p>
+              <p className="text-muted-foreground ml-4 opacity-60" >Software Engineer | Full-Stack Developer | Python Developer</p>
+              <div className="mt-2 space-y-1 text-sm text-muted-foreground ml-4 opacity-60">
                 <p>📧 vikasmourya54321@gmail.com</p>
                 <p>🌐 https://linkedin.com/in/vickypedia12</p>
                 <p>💻 https://github.com/vickypedia-12</p>
@@ -238,7 +243,7 @@ export default function ResumeViewer() {
                 )}
                 {getSectionIcon('education')}
                 <span className="text-primary">./education</span>
-                <span className="text-muted-foreground">--list</span>
+                <span className="text-muted-foreground opacity-60">--list</span>
               </button>
               
               {expandedSections.includes('education') && (
@@ -279,7 +284,7 @@ export default function ResumeViewer() {
                 )}
                 {getSectionIcon('experience')}
                 <span className="text-primary">./experience</span>
-                <span className="text-muted-foreground">--show-all</span>
+                <span className="text-muted-foreground opacity-60">--show-all</span>
               </button>
               
               {expandedSections.includes('experience') && (
@@ -320,7 +325,7 @@ export default function ResumeViewer() {
                 )}
                 {getSectionIcon('skills')}
                 <span className="text-primary">./skills</span>
-                <span className="text-muted-foreground">--verbose</span>
+                <span className="text-muted-foreground opacity-60">--verbose</span>
               </button>
               
               {expandedSections.includes('skills') && (
@@ -354,7 +359,7 @@ export default function ResumeViewer() {
                 )}
                 {getSectionIcon('projects')}
                 <span className="text-primary">./projects</span>
-                <span className="text-muted-foreground">--recent</span>
+                <span className="text-muted-foreground opacity-60">--recent</span>
               </button>
               
               {expandedSections.includes('projects') && (
@@ -384,12 +389,12 @@ export default function ResumeViewer() {
             </div>
 
             {/* Download Button */}
-            <div className="pt-6 border-t border-border">
+            <div className="pt-6 border-t border-border"  style={{color: "hsl(142 76% 56%)"}}>
               <Button
                 onClick={handleDownload}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
               >
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4 mr-2"/>
                 $ curl -O resume.pdf
               </Button>
             </div>

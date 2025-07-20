@@ -317,7 +317,7 @@ export default function ExperimentsSection() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 bg-[#181a1b]">
           {experiments.map((experiment) => (
             <div
               key={experiment.id}
