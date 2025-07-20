@@ -24,9 +24,9 @@ export default function WithTestimonial() {
                 <figure className="mt-16 border-l border-gray-200 pl-8 text-gray-700">
                   <blockquote className="text-base/7">
                     <p>
-                      "Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac
+                      Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac
                       dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim
-                      tristique."
+                      tristique.
                     </p>
                   </blockquote>
                   <figcaption className="mt-6 flex gap-x-4 text-sm/6">

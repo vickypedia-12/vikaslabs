@@ -35,7 +35,7 @@ export default function CenteredOnDarkPanel() {
                   <stop offset={1} stopColor="#E935C1" />
                 </radialGradient>
               </defs>
-            </svg>''
+            </svg>
           </div>
         </div>
       </div>

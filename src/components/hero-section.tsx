@@ -80,7 +80,7 @@ export default function HeroSection() {
           </div>
           {/* Main heading */}
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight font-mono text-center">
-            Hi, I'm Vikas — <br className="hidden sm:block" />
+            Hi, I&apos;m Vikas — <br className="hidden sm:block" />
             <span className="text-primary" style={{ color: "hsl(217,91%,60%)" }}>
               {displayed}&nbsp;<span className="animate-pulse">|</span>
             </span>

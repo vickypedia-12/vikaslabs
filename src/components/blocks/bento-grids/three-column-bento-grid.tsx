@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState, useRef, useId } from "react";
+import React, { useEffect, useState, useRef, useId, JSX } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { IconUpload } from "@tabler/icons-react";
@@ -421,7 +421,7 @@ export const SkeletonThree = () => {
   );
 };
 
-export const SkeletonFour = ({}: {}) => {
+export const SkeletonFour = (): JSX.Element => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 

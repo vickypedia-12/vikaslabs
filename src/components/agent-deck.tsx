@@ -81,7 +81,7 @@ export default function AgentDeck() {
             Project <span style={{ color: "hsl(217, 91%, 60%)" }}>Deck</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" style={{ color: "hsla(0, 0%, 37%, 1.00)" }}>
-            A collection of intelligent agents and tools I've built to solve real-world problems
+            A collection of intelligent agents and tools I&apos;ve built to solve real-world problems
           </p>
         </motion.div>
 

@@ -16,7 +16,7 @@ export default function SplitWithCodeExample() {
                 <div className="mt-24 sm:mt-32 lg:mt-16">
                   <a href="#" className="inline-flex space-x-6">
                     <span className="rounded-full bg-indigo-600/10 px-3 py-1 text-sm/6 font-semibold text-indigo-600 ring-1 ring-indigo-600/10 ring-inset">
-                      What's new
+                      What&apos;s new
                     </span>
                     <span className="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600">
                       <span>Just shipped v0.1.0</span>

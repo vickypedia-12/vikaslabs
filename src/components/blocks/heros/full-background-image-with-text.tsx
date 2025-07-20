@@ -91,7 +91,7 @@ export const Button = ({
   ...props
 }: {
   href?: string;
-  as?: React.ElementType | any;
+  as?: React.ElementType;
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "simple";
