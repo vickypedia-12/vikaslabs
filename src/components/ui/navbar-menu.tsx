@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 
 
 
-const transition = {
+import type { Transition } from "framer-motion";
+
+const transition: Transition = {
   type: "spring",
   mass: 0.5,
   damping: 11.5,

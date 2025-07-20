@@ -59,12 +59,20 @@ export function FullBackgroundImageWithText({
       </p>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-        <Button as={Link} href="#" variant="secondary">
-          Join Community
-        </Button>
-        <Button as={Link} href="#" variant="simple" target="_blank">
-          Add your product
-        </Button>
+        <Link href="#" passHref legacyBehavior>
+          <a>
+            <Button as="a" variant="secondary">
+              Join Community
+            </Button>
+          </a>
+        </Link>
+        <Link href="#" passHref legacyBehavior>
+          <a target="_blank">
+            <Button as="a" variant="simple">
+              Add your product
+            </Button>
+          </a>
+        </Link>
       </div>
       <div className="relative z-10 mt-10 flex flex-wrap justify-center gap-10">
         {logos.map((logo) => (
@@ -82,23 +90,31 @@ export function FullBackgroundImageWithText({
   );
 }
 
+type ButtonProps =
+  | ({
+      as?: "a";
+      href?: string;
+      children: React.ReactNode;
+      className?: string;
+      variant?: "primary" | "secondary" | "simple";
+    } & React.ComponentPropsWithoutRef<"a">)
+  | ({
+      as: "button";
+      href?: string;
+      children: React.ReactNode;
+      className?: string;
+      variant?: "primary" | "secondary" | "simple";
+    } & React.ComponentPropsWithoutRef<"button">);
+
 export const Button = ({
   href,
-  as: Tag = "a",
+  as = "a",
   children,
   className,
   variant = "primary",
   ...props
-}: {
-  href?: string;
-  as?: React.ElementType;
-  children: React.ReactNode;
-  className?: string;
-  variant?: "primary" | "secondary" | "simple";
-} & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+}: ButtonProps) => {
+  const Tag = as;
   const baseStyles =
     "no-underline flex space-x-2 group cursor-pointer relative border-none transition duration-200 rounded-full p-px text-xs font-semibold leading-6 px-4 py-2";
 
@@ -111,11 +127,16 @@ export const Button = ({
       "relative z-20 text-sm bg-transparent  text-white  w-full sm:w-44 h-10  flex items-center justify-center rounded-lg hover:-translate-y-0.5 ",
   };
 
+  // Separate type from props to avoid passing it to <a>
+  const { type, ...restProps } = props as any;
+
   return (
     <Tag
-      href={href || undefined}
+      {...(Tag === "a"
+        ? { href: href || undefined }
+        : { type: type ?? "button" })}
       className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
+      {...restProps}
     >
       {children}
     </Tag>
