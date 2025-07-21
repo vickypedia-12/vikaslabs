@@ -3,13 +3,14 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Pause } from "lucide-react"
 import React, { useEffect, useState } from "react";
-
+import AgentDeck from "@/components/agent-deck"
+import Link from "next/link"
 
   const TITLES = ["Python Developer", "AI Engineer"];
   const TYPING_SPEED = 80;
   const PAUSE = 1500;
 
-export default function HeroSection() {
+export default function HeroSection({ goToAgentDeck }: { goToAgentDeck: () => void }) {
   const [displayed, setDisplayed] = useState("");
   const [titleIdx, setTitleIdx] = useState(0);
   const [typing, setTyping] = useState(true);
@@ -42,11 +43,11 @@ export default function HeroSection() {
   }, [displayed, typing, titleIdx]);
 
   const scrollToAgentDeck = () => {
-    const agentDeckSection = document.getElementById('agent-deck')
+    const agentDeckSection = document.getElementById('agent-deck');
     if (agentDeckSection) {
-      agentDeckSection.scrollIntoView({ behavior: 'smooth' })
+      agentDeckSection.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
 
   return (
   <section className="min-h-screen bg-background flex items-center justify-center px-4 relative overflow-hidden">
@@ -97,14 +98,15 @@ export default function HeroSection() {
       </p>
       {/* CTA Button */}
       <div className="flex flex-row gap-4 justify-center">
-      <Button
-        onClick={scrollToAgentDeck}
-        size="lg"
-        className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group transition-all duration-300 shadow-[0_0_16px_2px_hsl(217,91%,60%,0.35)]"
-      >
+          <Button
+            onClick={goToAgentDeck}
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group transition-all duration-300 shadow-[0_0_16px_2px_hsl(217,91%,60%,0.35)]"
+          >
         View My Work
         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
       </Button>
+        {/* Download Resume Button */}
       <a
         href="/resume.pdf"
         download

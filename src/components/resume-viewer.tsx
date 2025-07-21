@@ -111,9 +111,9 @@ const mockResumeData: ResumeData = {
     {
       name: "Insightify",
       description: [
-        "Secured 1st place in DEVQUEST Hackathon, demonstrating exceptional problem-solving skills and innovation.",
-        "Curated and refined raw data for seamless front-end integration.",
-        "Led project presentations with a focus on strategic vision and technical depth."
+        "• Secured 1st place in DEVQUEST Hackathon, demonstrating exceptional problem-solving skills and innovation.\n",
+        "• Curated and refined raw data for seamless front-end integration.\n",
+        "• Led project presentations with a focus on strategic vision and technical depth.\n"
       ],
       technologies: ["Python"],
       link: "https://github.com/vaxad/Insightify"
@@ -121,9 +121,9 @@ const mockResumeData: ResumeData = {
     {
       name: "Morpheus",
       description: [
-        "Developed a Google Forms-like application using Django Templates and DRF, ensuring modular and scalable code.",
-        "Created a structured folder system to enhance maintainability and modularity.",
-        "Enabled seamless form creation, submission, and analysis through an intuitive user interface."
+        "• Developed a Google Forms-like application using Django Templates and DRF, ensuring modular and scalable code.\n",
+        "• Created a structured folder system to enhance maintainability and modularity.\n",
+        "• Enabled seamless form creation, submission, and analysis through an intuitive user interface.\n"
       ],
       technologies: ["Django", "Python", "sqlite"],
       link: "https://github.com/vickypedia-12/morpheus"
@@ -131,9 +131,9 @@ const mockResumeData: ResumeData = {
     {
       name: "Study Rag",
       description: [
-        "Developed a RAG-based application to process and analyze study materials such as DOCs, PPTs, and PDFs.",
-        "Empowered 50+ active users to upload documents and generate a comprehensive answers from the parsed questions.",
-        "Optimized document parsing using LangChain, streamlined backend with FastAPI, and enhanced user experience through Streamlit."
+        "• Developed a RAG-based application to process and analyze study materials such as DOCs, PPTs, and PDFs.\n",
+        "• Empowered 50+ active users to upload documents and generate comprehensive answers from the parsed questions.\n",
+        "• Optimized document parsing using LangChain, streamlined backend with FastAPI, and enhanced user experience through Streamlit.\n"
       ],
       technologies: ["Python", "vector DB", "LangChain", "FastAPI", "streamlit"],
       link: "https://github.com/vickypedia-12/study-rag"
@@ -242,7 +242,7 @@ export default function ResumeViewer() {
                   <ChevronRight className="w-4 h-4" />
                 )}
                 {getSectionIcon('education')}
-                <span className="text-primary">./education</span>
+                <span className="text-primary"  style={{color: "hsl(142 76% 56%)"}}>./education</span>
                 <span className="text-muted-foreground opacity-60">--list</span>
               </button>
               
@@ -253,11 +253,11 @@ export default function ResumeViewer() {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-semibold text-foreground">{edu.degree}</h3>
-                          <p className="text-primary">{edu.institution}</p>
+                          <p className="text-primary" style={{color: "hsl(142 76% 56%)"}}>{edu.institution}</p>
                         </div>
-                        <span className="text-muted-foreground text-sm">{edu.year}</span>
+                        <span className="text-muted-foreground text-sm opacity-60">{edu.year}</span>
                       </div>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground opacity-60">
                         {edu.details.map((detail, idx) => (
                           <li key={idx} className="flex items-center gap-2">
                             <span className="text-primary">•</span>
@@ -283,7 +283,7 @@ export default function ResumeViewer() {
                   <ChevronRight className="w-4 h-4" />
                 )}
                 {getSectionIcon('experience')}
-                <span className="text-primary">./experience</span>
+                <span className="text-primary"  style={{color: "hsl(142 76% 56%)"}}>./experience</span>
                 <span className="text-muted-foreground opacity-60">--show-all</span>
               </button>
               
@@ -294,15 +294,14 @@ export default function ResumeViewer() {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-semibold text-foreground">{exp.position}</h3>
-                          <p className="text-primary">{exp.company}</p>
+                          <p className="text-primary" style={{color: "hsl(142 76% 56%)"}}>{exp.company}</p>
                         </div>
-                        <span className="text-muted-foreground text-sm">{exp.period}</span>
+                        <span className="text-muted-foreground text-sm opacity-60">{exp.period}</span>
                       </div>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground opacity-60">
                         {exp.responsibilities.map((resp, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
-                            <TypewriterText text={resp} isVisible={expandedSections.includes('experience')} delay={idx * 150} />
+                            <TypewriterText text={resp} isVisible={expandedSections.includes('experience')} delay={idx * 2} />
                           </li>
                         ))}
                       </ul>
@@ -324,18 +323,18 @@ export default function ResumeViewer() {
                   <ChevronRight className="w-4 h-4" />
                 )}
                 {getSectionIcon('skills')}
-                <span className="text-primary">./skills</span>
+                <span className="text-primary" style={{color: "hsl(142 76% 56%)"}}>./skills</span>
                 <span className="text-muted-foreground opacity-60">--verbose</span>
               </button>
               
               {expandedSections.includes('skills') && (
-                <div className="ml-8 space-y-4">
+                <div className="ml-8 space-y-4 ">
                   {mockResumeData.skills.map((skillGroup, index) => (
                     <div key={index} className="border-l-2 border-primary pl-4">
                       <h3 className="font-semibold text-foreground mb-2">{skillGroup.category}</h3>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 bg-[#181a1b]">
                         {skillGroup.items.map((skill, idx) => (
-                          <span key={idx} className="bg-secondary text-foreground px-2 py-1 rounded text-sm border border-border">
+                          <span key={idx} className="bg-[#181a1b] text-foreground px-2 py-1 rounded text-sm border border-border ">
                             {skill}
                           </span>
                         ))}
@@ -358,7 +357,7 @@ export default function ResumeViewer() {
                   <ChevronRight className="w-4 h-4" />
                 )}
                 {getSectionIcon('projects')}
-                <span className="text-primary">./projects</span>
+                <span className="text-primary"  style={{color: "hsl(142 76% 56%)"}}>./projects</span>
                 <span className="text-muted-foreground opacity-60">--recent</span>
               </button>
               
@@ -367,14 +366,24 @@ export default function ResumeViewer() {
                   {mockResumeData.projects.map((project, index) => (
                     <div key={index} className="border-l-2 border-primary pl-4">
                       <div className="flex justify-between items-start">
-                        <h3 className="font-semibold text-foreground">{project.name}</h3>
+                        <h3 className="font-semibold text-foreground" style={{color: "hsl(142 76% 56%)"}}>{project.name}</h3>
                         {project.link && (
-                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline">
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline" style={{color: "hsl(142 76% 56%)"}}>
                             view →
                           </a>
                         )}
                       </div>
-                      <p className="text-muted-foreground text-sm mt-1">{project.description}</p>
+                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground opacity-60">
+                        {project.description.map((line: string, idx: number) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <TypewriterText
+                              text={line}
+                              isVisible={expandedSections.includes('projects')}
+                              delay={idx * 2}
+                            />
+                          </li>
+                        ))}
+                      </ul>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {project.technologies.map((tech, idx) => (
                           <span key={idx} className="bg-secondary text-primary px-2 py-1 rounded text-xs border border-border">

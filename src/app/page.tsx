@@ -39,7 +39,7 @@ export default function Portfolio() {
   const renderCurrentView = () => {
     switch (currentView) {
       case "hero":
-        return <HeroSection />
+        return <HeroSection goToAgentDeck={() => setCurrentView("agent-deck")}/>
       case "agent-deck":
         return <AgentDeck />
       case "experiments":
@@ -49,7 +49,7 @@ export default function Portfolio() {
       case "chat":
         return <ResumeBot />
       default:
-        return <HeroSection />
+        return <HeroSection goToAgentDeck={() => setCurrentView("agent-deck")}/>
     }
   }
 

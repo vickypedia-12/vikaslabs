@@ -310,7 +310,7 @@ export default function ExperimentsSection() {
           <h2 className="text-4xl font-bold text-foreground mb-4">
             My <span style={{ color: "hsl(217, 91%, 60%)" }}>Experiments</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto opacity-60">
             Real-world AI/ML and API projects showcasing production-ready
             implementations with comprehensive code examples and deployment
             strategies.
@@ -328,7 +328,7 @@ export default function ExperimentsSection() {
                   <h3 className="text-2xl font-semibold text-foreground mb-3">
                     {experiment.name}
                   </h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
+                  <p className="text-muted-foreground text-lg leading-relaxed opacity-60">
                     {experiment.description}
                   </p>
                 </div>
@@ -372,7 +372,7 @@ export default function ExperimentsSection() {
                   </pre>
                 </div>
 
-                <div className="border-t border-border">
+                <div className="border-t border-border opacity-40">
                   <button
                     onClick={() => toggleExpanded(experiment.id)}
                     className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-colors"
