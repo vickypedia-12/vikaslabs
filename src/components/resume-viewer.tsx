@@ -179,7 +179,7 @@ export default function ResumeViewer() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-3 md:p-4 font-mono pt-16 lg:pt-0">
+    <div className="min-h-screen bg-background p-3 md:p-4 font-mono pt-16 lg:pt-5">
       <div className="max-w-4xl mx-auto">
         <Card className="bg-card border-border shadow-2xl bg-[#181a1b]">
           {/* Terminal Header */}

@@ -42,9 +42,12 @@ export default function ResumeBot() {
     return () => clearInterval(cursorInterval)
   }, [])
 
-  // Auto-scroll to bottom when messages change
+  // Auto-scroll to bottom when messages change (but not on initial load)
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    // Only auto-scroll if there are more than 1 message (initial welcome message)
+    if (messages.length > 1) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
   }, [messages])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -120,10 +123,10 @@ const generateBotResponse = (query: string): string => {
   }
 
   return (
-    <div className="bg-background pt-16 lg:pt-0">
+    <div className="bg-background pt-20 lg:pt-6">
       <div className="max-w-4xl mx-auto p-3 md:p-6" >
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0,  y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="bg-[#181a1b] border border-border rounded-lg overflow-hidden shadow-2xl"
