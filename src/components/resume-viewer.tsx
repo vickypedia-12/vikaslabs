@@ -179,51 +179,40 @@ export default function ResumeViewer() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4 font-mono">
+    <div className="min-h-screen bg-background p-3 md:p-4 font-mono pt-16 lg:pt-0">
       <div className="max-w-4xl mx-auto">
         <Card className="bg-card border-border shadow-2xl bg-[#181a1b]">
           {/* Terminal Header */}
-          <div className="border-b border-border bg-secondary p-4">
-            <div className="flex items-center gap-2">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          <div className="border-b border-border bg-secondary p-3 md:p-4">
+            <div className="flex items-center gap-1 md:gap-2">
+              <div className="flex gap-1 md:gap-2">
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500"></div>
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="ml-4 flex items-center text-primary ">
-                <Terminal className="w-4 h-4 mr-2" style={{ color: "hsl(142 76% 56%)" }} />
-                <span className="text-foreground">vikas@portfolio</span>
-                <span className="text-muted-foreground">:</span>
-                <span className="text-primary" style={{ color: "hsl(142 76% 56%)" }}>~/resume</span>
+              <div className="ml-2 md:ml-4 flex items-center text-primary overflow-hidden">
+                <Terminal className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 flex-shrink-0" style={{ color: "hsl(142 76% 56%)" }} />
+                <span className="text-foreground text-xs md:text-sm truncate">vikas@portfolio</span>
+                <span className="text-muted-foreground hidden sm:inline">:</span>
+                <span className="text-primary hidden sm:inline" style={{ color: "hsl(142 76% 56%)" }}>~/resume</span>
                 <span className="text-foreground">$</span>
                 <BlinkingCursor />
               </div>
             </div>
           </div>
 
-          {/* Command History */}
-          <div className="p-4 border-b border-border bg-muted/30">
-            <div className="space-y-1 text-sm" >
-              {commandHistory.slice(-3).map((cmd, index) => (
-                <div key={index} className="flex items-center text-muted-foreground">
-                  <span className="text-primary">$</span>
-                  <span className="ml-2">{cmd}</span>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Resume Content */}
-          <div className="p-6 space-y-6">
+          <div className="p-3 md:p-6 space-y-4 md:space-y-6">
             {/* Header */}
-            <div className="border-b border-border pb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <User className="w-5 h-5 text-primary" style={{ color: "hsl(142 76% 56%)" }}/>
-                <h1 className="text-2xl font-bold text-foreground">Vikas Mourya</h1>
+            <div className="border-b border-border pb-3 md:pb-4">
+              <div className="flex items-center gap-1 md:gap-2 mb-2">
+                <User className="w-4 h-4 md:w-5 md:h-5 text-primary" style={{ color: "hsl(142 76% 56%)" }}/>
+                <h1 className="text-xl md:text-2xl font-bold text-foreground">Vikas Mourya</h1>
               </div>
-              <p className="text-primary text-lg" style={{ color: "hsl(142 76% 56%)" }}>$ whoami</p>
-              <p className="text-muted-foreground ml-4 opacity-60" >Software Engineer | Full-Stack Developer | Python Developer</p>
-              <div className="mt-2 space-y-1 text-sm text-muted-foreground ml-4 opacity-60">
+              <p className="text-primary text-sm md:text-lg" style={{ color: "hsl(142 76% 56%)" }}>$ whoami</p>
+              <p className="text-muted-foreground ml-3 md:ml-4 opacity-60 text-sm md:text-base" >Software Engineer | Full-Stack Developer | Python Developer</p>
+              <div className="mt-2 space-y-1 text-xs md:text-sm text-muted-foreground ml-3 md:ml-4 opacity-60">
                 <p>📧 vikasmourya54321@gmail.com</p>
                 <p>🌐 https://linkedin.com/in/vickypedia12</p>
                 <p>💻 https://github.com/vickypedia-12</p>
@@ -231,36 +220,36 @@ export default function ResumeViewer() {
             </div>
 
             {/* Education Section */}
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <button
                 onClick={() => toggleSection('education')}
-                className="flex items-center gap-2 w-full text-left hover:text-primary transition-colors"
+                className="flex items-center gap-1 md:gap-2 w-full text-left hover:text-primary transition-colors text-sm md:text-base"
               >
                 {expandedSections.includes('education') ? (
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 ) : (
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 )}
                 {getSectionIcon('education')}
-                <span className="text-primary"  style={{color: "hsl(142 76% 56%)"}}>./education</span>
-                <span className="text-muted-foreground opacity-60">--list</span>
+                <span className="text-primary truncate"  style={{color: "hsl(142 76% 56%)"}}>./education</span>
+                <span className="text-muted-foreground opacity-60 hidden sm:inline">--list</span>
               </button>
               
               {expandedSections.includes('education') && (
-                <div className="ml-8 space-y-4">
+                <div className="ml-4 md:ml-8 space-y-3 md:space-y-4">
                   {mockResumeData.education.map((edu, index) => (
-                    <div key={index} className="border-l-2 border-primary pl-4">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="font-semibold text-foreground">{edu.degree}</h3>
-                          <p className="text-primary" style={{color: "hsl(142 76% 56%)"}}>{edu.institution}</p>
+                    <div key={index} className="border-l-2 border-primary pl-3 md:pl-4">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-foreground text-sm md:text-base">{edu.degree}</h3>
+                          <p className="text-primary text-sm" style={{color: "hsl(142 76% 56%)"}}>{edu.institution}</p>
                         </div>
-                        <span className="text-muted-foreground text-sm opacity-60">{edu.year}</span>
+                        <span className="text-muted-foreground text-xs md:text-sm opacity-60">{edu.year}</span>
                       </div>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground opacity-60">
+                      <ul className="mt-2 space-y-1 text-xs md:text-sm text-muted-foreground opacity-60">
                         {edu.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-center gap-2">
-                            <span className="text-primary">•</span>
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-primary flex-shrink-0 mt-0.5">•</span>
                             <TypewriterText text={detail} isVisible={expandedSections.includes('education')} delay={idx * 100} />
                           </li>
                         ))}
@@ -272,33 +261,33 @@ export default function ResumeViewer() {
             </div>
 
             {/* Experience Section */}
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <button
                 onClick={() => toggleSection('experience')}
-                className="flex items-center gap-2 w-full text-left hover:text-primary transition-colors"
+                className="flex items-center gap-1 md:gap-2 w-full text-left hover:text-primary transition-colors text-sm md:text-base"
               >
                 {expandedSections.includes('experience') ? (
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 ) : (
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 )}
                 {getSectionIcon('experience')}
-                <span className="text-primary"  style={{color: "hsl(142 76% 56%)"}}>./experience</span>
-                <span className="text-muted-foreground opacity-60">--show-all</span>
+                <span className="text-primary truncate"  style={{color: "hsl(142 76% 56%)"}}>./experience</span>
+                <span className="text-muted-foreground opacity-60 hidden sm:inline">--show-all</span>
               </button>
               
               {expandedSections.includes('experience') && (
-                <div className="ml-8 space-y-4">
+                <div className="ml-4 md:ml-8 space-y-3 md:space-y-4">
                   {mockResumeData.experience.map((exp, index) => (
-                    <div key={index} className="border-l-2 border-primary pl-4">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="font-semibold text-foreground">{exp.position}</h3>
-                          <p className="text-primary" style={{color: "hsl(142 76% 56%)"}}>{exp.company}</p>
+                    <div key={index} className="border-l-2 border-primary pl-3 md:pl-4">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-foreground text-sm md:text-base">{exp.position}</h3>
+                          <p className="text-primary text-sm" style={{color: "hsl(142 76% 56%)"}}>{exp.company}</p>
                         </div>
-                        <span className="text-muted-foreground text-sm opacity-60">{exp.period}</span>
+                        <span className="text-muted-foreground text-xs md:text-sm opacity-60">{exp.period}</span>
                       </div>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground opacity-60">
+                      <ul className="mt-2 space-y-1 text-xs md:text-sm text-muted-foreground opacity-60">
                         {exp.responsibilities.map((resp, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <TypewriterText text={resp} isVisible={expandedSections.includes('experience')} delay={idx * 2} />
@@ -312,29 +301,29 @@ export default function ResumeViewer() {
             </div>
 
             {/* Skills Section */}
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <button
                 onClick={() => toggleSection('skills')}
-                className="flex items-center gap-2 w-full text-left hover:text-primary transition-colors"
+                className="flex items-center gap-1 md:gap-2 w-full text-left hover:text-primary transition-colors text-sm md:text-base"
               >
                 {expandedSections.includes('skills') ? (
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 ) : (
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 )}
                 {getSectionIcon('skills')}
-                <span className="text-primary" style={{color: "hsl(142 76% 56%)"}}>./skills</span>
-                <span className="text-muted-foreground opacity-60">--verbose</span>
+                <span className="text-primary truncate" style={{color: "hsl(142 76% 56%)"}}>./skills</span>
+                <span className="text-muted-foreground opacity-60 hidden sm:inline">--verbose</span>
               </button>
               
               {expandedSections.includes('skills') && (
-                <div className="ml-8 space-y-4 ">
+                <div className="ml-4 md:ml-8 space-y-3 md:space-y-4">
                   {mockResumeData.skills.map((skillGroup, index) => (
-                    <div key={index} className="border-l-2 border-primary pl-4">
-                      <h3 className="font-semibold text-foreground mb-2">{skillGroup.category}</h3>
-                      <div className="flex flex-wrap gap-2 bg-[#181a1b]">
+                    <div key={index} className="border-l-2 border-primary pl-3 md:pl-4">
+                      <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">{skillGroup.category}</h3>
+                      <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {skillGroup.items.map((skill, idx) => (
-                          <span key={idx} className="bg-[#181a1b] text-foreground px-2 py-1 rounded text-sm border border-border ">
+                          <span key={idx} className="bg-[#181a1b] text-foreground px-2 py-1 rounded text-xs md:text-sm border border-border">
                             {skill}
                           </span>
                         ))}
@@ -346,34 +335,34 @@ export default function ResumeViewer() {
             </div>
 
             {/* Projects Section */}
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <button
                 onClick={() => toggleSection('projects')}
-                className="flex items-center gap-2 w-full text-left hover:text-primary transition-colors"
+                className="flex items-center gap-1 md:gap-2 w-full text-left hover:text-primary transition-colors text-sm md:text-base"
               >
                 {expandedSections.includes('projects') ? (
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 ) : (
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                 )}
                 {getSectionIcon('projects')}
-                <span className="text-primary"  style={{color: "hsl(142 76% 56%)"}}>./projects</span>
-                <span className="text-muted-foreground opacity-60">--recent</span>
+                <span className="text-primary truncate"  style={{color: "hsl(142 76% 56%)"}}>./projects</span>
+                <span className="text-muted-foreground opacity-60 hidden sm:inline">--recent</span>
               </button>
               
               {expandedSections.includes('projects') && (
-                <div className="ml-8 space-y-4">
+                <div className="ml-4 md:ml-8 space-y-3 md:space-y-4">
                   {mockResumeData.projects.map((project, index) => (
-                    <div key={index} className="border-l-2 border-primary pl-4">
-                      <div className="flex justify-between items-start">
-                        <h3 className="font-semibold text-foreground" style={{color: "hsl(142 76% 56%)"}}>{project.name}</h3>
+                    <div key={index} className="border-l-2 border-primary pl-3 md:pl-4">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                        <h3 className="font-semibold text-foreground text-sm md:text-base flex-1" style={{color: "hsl(142 76% 56%)"}}>{project.name}</h3>
                         {project.link && (
-                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline" style={{color: "hsl(142 76% 56%)"}}>
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary text-xs md:text-sm hover:underline self-start" style={{color: "hsl(142 76% 56%)"}}>
                             view →
                           </a>
                         )}
                       </div>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground opacity-60">
+                      <ul className="mt-2 space-y-1 text-xs md:text-sm text-muted-foreground opacity-60">
                         {project.description.map((line: string, idx: number) => (
                           <li key={idx} className="flex items-start gap-2">
                             <TypewriterText
@@ -384,9 +373,9 @@ export default function ResumeViewer() {
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-2 flex flex-wrap gap-2">
+                      <div className="mt-2 flex flex-wrap gap-1.5 md:gap-2">
                         {project.technologies.map((tech, idx) => (
-                          <span key={idx} className="bg-secondary text-primary px-2 py-1 rounded text-xs border border-border">
+                          <span key={idx} className="bg-secondary text-primary px-1.5 md:px-2 py-0.5 md:py-1 rounded text-xs border border-border">
                             {tech}
                           </span>
                         ))}
@@ -398,13 +387,14 @@ export default function ResumeViewer() {
             </div>
 
             {/* Download Button */}
-            <div className="pt-6 border-t border-border"  style={{color: "hsl(142 76% 56%)"}}>
+            <div className="pt-4 md:pt-6 border-t border-border"  style={{color: "hsl(142 76% 56%)"}}>
               <Button
                 onClick={handleDownload}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono w-full sm:w-auto text-sm md:text-base"
               >
-                <Download className="w-4 h-4 mr-2"/>
-                $ curl -O resume.pdf
+                <Download className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2"/>
+                <span className="hidden sm:inline">$ curl -O resume.pdf</span>
+                <span className="sm:hidden">Download Resume</span>
               </Button>
             </div>
           </div>

@@ -65,8 +65,7 @@ class RouteSpider(scrapy.Spider):
             if full_url.startswith("https://example.com"):
                 yield {"url": full_url}
                 yield scrapy.Request(full_url, callback=self.parse)`,
-    github: "https://github.com/username/website-route-scraper",
-    demo: "https://demo.example.com/route-scraper",
+    github: "https://github.com/vickypedia-12/CRM",
   },
   {
     id: "data-pipeline", // Same ID
@@ -115,7 +114,6 @@ if __name__ == '__main__':
     saved = detector.detect_and_draw('logo_test.jpg')
     print(f"Output image saved to: {saved}")`,
     github: "https://github.com/vickypedia-12/logo-Detection",
-    demo: "https://demo.example.com/logo-detection",
   },
   {
     id: "ml-deployment", // Same ID
@@ -282,7 +280,6 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)`,
     github: "https://github.com/vickypedia-12/foodle",
-    demo: "https://demo.example.com/foodle",
   },
 ];
 
@@ -306,66 +303,58 @@ export default function ExperimentsSection() {
   return (
     <section id="experiments" className="py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
             My <span style={{ color: "hsl(217, 91%, 60%)" }}>Experiments</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto opacity-60">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto opacity-60 px-4">
             Real-world AI/ML and API projects showcasing production-ready
             implementations with comprehensive code examples and deployment
             strategies.
           </p>
         </div>
 
-        <div className="space-y-8 bg-[#181a1b]">
+        <div className="space-y-6 md:space-y-8">
           {experiments.map((experiment) => (
             <div
               key={experiment.id}
-              className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-colors duration-200"
+              className="bg-card border border-border rounded-lg p-4 md:p-8 hover:border-primary/50 transition-colors duration-200"
             >
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-foreground mb-3">
+              <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 md:mb-6">
+                <div className="flex-1 mb-4 md:mb-0">
+                  <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2 md:mb-3">
                     {experiment.name}
                   </h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed opacity-60">
+                  <p className="text-muted-foreground text-sm md:text-lg leading-relaxed opacity-60">
                     {experiment.description}
                   </p>
                 </div>
-                <div className="flex items-center gap-3 ml-6">
+                <div className="flex items-center gap-3 md:ml-6">
                   <a
                     href={experiment.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-md bg-secondary hover:bg-secondary/80 transition-colors"
                   >
-                    <Github className="h-5 w-5 text-foreground" />
-                  </a>
-                  <a
-                    href={experiment.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-md bg-primary hover:bg-primary/90 transition-colors"
-                  >
-                    <ExternalLink className="h-5 w-5 text-primary-foreground" />
+                    <Github className="h-4 w-4 md:h-5 md:w-5 text-foreground" />
                   </a>
                 </div>
               </div>
 
               <div className="bg-secondary rounded-lg border border-border overflow-hidden">
-                <div className="flex items-center justify-between bg-secondary/50 px-4 py-3 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-destructive"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-primary"></div>
+                <div className="flex items-center justify-between bg-secondary/50 px-3 md:px-4 py-2 md:py-3 border-b border-border">
+                  <div className="flex items-center gap-1.5 md:gap-2">
+                    <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-destructive"></div>
+                    <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-primary"></div>
                   </div>
-                  <span className="text-sm text-muted-foreground font-mono">
+                  <span className="text-xs md:text-sm text-muted-foreground font-mono truncate">
                     {experiment.name.toLowerCase().replace(/\s+/g, "-")}.py
                   </span>
                 </div>
 
-                <div className="p-4">
-                  <pre className="text-sm overflow-x-auto">
+                <div className="p-3 md:p-4">
+                  <pre className="text-xs md:text-sm overflow-x-auto">
                     <code className="font-mono text-foreground whitespace-pre-wrap">
                       {experiment.preview}
                     </code>
@@ -375,7 +364,7 @@ export default function ExperimentsSection() {
                 <div className="border-t border-border opacity-40">
                   <button
                     onClick={() => toggleExpanded(experiment.id)}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-colors"
                   >
                     <span>
                       {expandedProjects.has(experiment.id)
@@ -383,17 +372,17 @@ export default function ExperimentsSection() {
                         : "Show more implementation"}
                     </span>
                     {expandedProjects.has(experiment.id) ? (
-                      <ChevronUp className="h-4 w-4" />
+                      <ChevronUp className="h-3 w-3 md:h-4 md:w-4" />
                     ) : (
-                      <ChevronDown className="h-4 w-4" />
+                      <ChevronDown className="h-3 w-3 md:h-4 md:w-4" />
                     )}
                   </button>
                 </div>
 
                 {expandedProjects.has(experiment.id) && (
                   <div className="border-t border-border bg-secondary/20">
-                    <div className="p-4">
-                      <pre className="text-sm overflow-x-auto">
+                    <div className="p-3 md:p-4">
+                      <pre className="text-xs md:text-sm overflow-x-auto">
                         <code className="font-mono text-foreground whitespace-pre-wrap">
                           {experiment.fullCode}
                         </code>

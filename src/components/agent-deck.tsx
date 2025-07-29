@@ -30,7 +30,7 @@ const projects: Project[] = [
     description: "Spring Boot and PostgreSQL-based inventory system for restaurants, linking ingredients, dishes, and recipes with automated stock management.",
     techStack: ["Spring Boot", "Java", "PostgreSQL", "Docker", "REST APIs"],
     icon: <Code2 className="w-6 h-6" />,
-    link: "#"
+    link: "https://github.com/vickypedia-12/Inventory-Backend"
   },
   {
     id: "content-generator",
@@ -38,7 +38,7 @@ const projects: Project[] = [
     description: "A legal-focused Retrieval-Augmented Generation system to help law students and professionals quickly retrieve case studies, summarize documents, and provide AI-assisted insights.",
     techStack: ["LangChain", "Python", "FastAPI", "Vector DB", "OpenAI API"],
     icon: <Code2 className="w-6 h-6" />,
-    link: "#"
+    link: "https://github.com/vickypedia-12/law-gpt"
   },
   {
     id: "data-processor",
@@ -129,13 +129,15 @@ export default function AgentDeck() {
 
                   <Button
                     variant="ghost"
-                    className="w-full justify-between text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-300"
-                    asChild
+                    className="w-full justify-between text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-300 group relative z-10"
+                    onClick={() => {                     
+                      if (project.link !== "#") {
+                        window.open(project.link, "_blank", "noopener,noreferrer");
+                      }
+                    }}
                   >
-                    <a href={project.link}>
-                      View Project
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </a>
+                    View Project
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </CardContent>
               </Card>
